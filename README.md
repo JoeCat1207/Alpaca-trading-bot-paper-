@@ -1,1 +1,2 @@
 
+This is a alpaca trading bot, first to install it get python 3.8 and if your on mac first clone the repo by doing git clone https://github.com/JoeCat1207/alpaca-ml.git then go and do cd alpaca-ml then do pip3 install -r requirements.txt it should download all the things. After this open the directory the bot is downloaded at and open bot.py and run it. It should be the end from there, you can email me if you have questions about this and compile errors, joejia1207@gmail.com.
