@@ -2,27 +2,24 @@ import alpaca_trade_api as tradeapi
 import threading
 import time
 import datetime
-import configparser
+import os
 
-config = configparser.RawConfigParser()   
-config.read(".env.txt")
+API_KEY = "insert api key"
+API_SECRET = "insert secret api key"
+APCA_API_BASE_URL = "copy the endpoint url here"
 
-API_KEY = config.get("env", "alpaca_key")
-API_SECRET = config.get("env", "alpaca_secret")
-APCA_API_BASE_URL = config.get("env", "alpaca_endpoint")
-
-email = config.get("env", "email")
-password = config.get("env", "password")
-ticker = config.get("env", "ticker")
+email = "your email for alpaca"
+password = "password for alpaca"
+ticker = "the symbol from the stock universe line under this"
 
 print("Starting bot...", email, password)
 print("Looking at ticker: ", ticker)
 
 class LongShort:
   def __init__(self):
-    self.alpaca = tradeapi.REST(API_KEY, API_SECRET, APCA_API_BASE_URL, 'v2')
+    self.alpaca = tradeapi.REST(key_id="the normal key", secret_key="the secret key", base_url="the endpoint url" , api_version='v2')
 
-    stockUniverse = ['DOMO', 'TLRY', 'SQ', 'MRO', 'AAPL', 'GM', 'SNAP', 'SHOP', 'SPLK', 'BA', 'AMZN', 'SUI', 'SUN', 'TSLA', 'CGC', 'SPWR', 'NIO', 'CAT', 'MSFT', 'PANW', 'OKTA', 'TWTR', 'TM', 'RTN', 'ATVI', 'GS', 'BAC', 'MS', 'TWLO', 'QCOM', ]
+    stockUniverse = ('PYPL', 'DOMO', 'TLRY', 'SQ', 'MRO', 'AAPL', 'GM', 'SNAP', 'SHOP', 'SPLK', 'BA', 'AMZN', 'SUI', 'SUN', 'TSLA', 'CGC', 'SPWR', 'NIO', 'CAT', 'MSFT', 'PANW', 'OKTA', 'TWTR', 'TM', 'RTN', 'ATVI', 'GS', 'BAC', 'MS', 'TWLO', 'QCOM')
     # Format the allStocks variable for use in the class.
     self.allStocks = []
     for stock in stockUniverse:
